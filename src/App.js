@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import ParticipantDisplayGrid from './Components/Grid';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <button><strong>Runners</strong> looking for a pacer?</button>
         <button><strong>Pacers</strong> looking for a runner?</button>
        </span>
+       <ParticipantDisplayGrid />
       </header>
     </div>
   );
