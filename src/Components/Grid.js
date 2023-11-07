@@ -40,7 +40,7 @@ const ParticipantDisplayGrid = (props) => {
     }, [participantType]);
 
     return (
-        <div style={{height: 300, width: '100%', padding: 25}}>
+        <div style={{height: 400, width: '100%'}}>
             <p>{participantType.toUpperCase()}</p>
             <DataGrid style={{backgroundColor: 'white', padding: 25}} rows={rowData} columns={columnData}/>
         </div>
