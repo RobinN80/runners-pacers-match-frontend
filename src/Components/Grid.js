@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Runners, Pacers } from '../shared/runners-pacers-mock-data';
 
@@ -22,12 +22,26 @@ const columnsPacers = [
     {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
 ]
 
-const ParticipantDisplayGrid = () => {
-    const [rowData ] = useState(Runners);
-    const [columnData ] = useState(columnsRunners)
+const ParticipantDisplayGrid = (props) => {
+    const [rowData, setRowData ] = useState([]);
+    const [columnData, setColumnData ] = useState(columnsRunners)
+
+    const {participantType} = props;
+
+    useEffect(() => {
+        if(participantType === 'runners'){
+            setRowData(Runners);
+            setColumnData(columnsRunners)
+        }
+        if(participantType === 'pacers'){
+            setRowData(Pacers);
+            setColumnData(columnsPacers)
+        }
+    }, [participantType]);
 
     return (
         <div style={{height: 300, width: '100%', padding: 25}}>
+            <p>{participantType.toUpperCase()}</p>
             <DataGrid style={{backgroundColor: 'white', padding: 25}} rows={rowData} columns={columnData}/>
         </div>
     );
