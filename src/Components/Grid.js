@@ -7,8 +7,8 @@ const columnsRunners = [
     {field: 'gender', headerName: 'Gender', width: 150},
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
     {field: 'runnerDistance', headerName: 'Distance', width: 150},
-    {field: 'runner50TimeEstimate', headerName: 'Time Estimate', width: 150},
-    {field: 'runner100TimeEstimate', headerName: 'Time Estimate', width: 150},
+    {field: 'runner50TimeEstimate', headerName: 'Time Estimate 50', width: 150},
+    {field: 'runner100TimeEstimate', headerName: 'Time Estimate 100', width: 150},
     {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
 ]
 
@@ -16,9 +16,8 @@ const columnsPacers = [
     {field: 'name', headerName: 'Name', width: 150},
     {field: 'gender', headerName: 'Gender', width: 150},
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
-    {field: 'runnerDistance', headerName: 'Distance', width: 150},
-    {field: 'runner50TimeEstimate', headerName: 'Time Estimate', width: 150},
-    {field: 'runner100TimeEstimate', headerName: 'Time Estimate', width: 150},
+    {field: 'pacersDistance', headerName: 'Distance', width: 150},
+    {field: 'pacerTimeEstimate', headerName: 'Time Estimate', width: 150},
     {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
 ]
 
