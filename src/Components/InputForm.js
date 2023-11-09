@@ -3,11 +3,14 @@ import {FormControl, Dialog, DialogTitle, TextField, InputLabel, Select, MenuIte
 
 const InputForm  = (props) => {
     const {participantFormType, handleClose, open} = props;
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [age, setAge] = useState(0);
     const [gender, setGender] = useState('');
     const [partnerGender, setPartnerGender] = useState('none')
     const [distance, setDistance] = useState(0);
     const [timeEstimate, setTimeEstimate] = useState('');
-    console.log('time estimate', timeEstimate);
+    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate);
 
     useEffect(() => {
         setGender('');
@@ -28,13 +31,13 @@ const InputForm  = (props) => {
         </DialogTitle>
         <FormControl>
             {/* <InputLabel id="name">Name</InputLabel> */}
-            <TextField id='name' label="Name" required  placeholder='Full Name'>Name</TextField>
+            <TextField id='name' label="Name" onChange={(e)=>setName(e.target.value)} required  placeholder='Full Name'>Name</TextField>
         </FormControl>
         <FormControl>
-            <TextField id='email address' label="Email Address" required placeholder='Email Address, be sure it is correct!'>Name</TextField>
+            <TextField id='email address' onChange={(e)=>setEmail(e.target.value)} label="Email Address" required placeholder='Email Address, be sure it is correct!'>Email Adddress</TextField>
         </FormControl>
         <FormControl>
-            <TextField id='age' label="Age" required defaultValue="" placeholder='Age'>Name</TextField>
+            <TextField id='age' label="Age" required onChange={(e)=>setAge(e.target.value)} placeholder='Age'>Age</TextField>
         </FormControl>
         <FormControl >
             <InputLabel id="select-gender">Gender</InputLabel>
@@ -144,7 +147,7 @@ const InputForm  = (props) => {
         </FormControl>
         
             
-        <FormControl>
+        <FormControl >
             <FormLabel id="demo-radio-buttons-group-label">Time Estimate to Finish</FormLabel>
             <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
@@ -153,19 +156,12 @@ const InputForm  = (props) => {
                 value={timeEstimate}
                 onChange={(e)=> setTimeEstimate(e.target.value)}
             >
-                <FormControlLabel  value="sub 36hrs" control={<Radio />} label="100 miles in sub 36hrs" />
-                <FormControlLabel value="sub 30hrs" control={<Radio />} label="100 miles in sub 30hrs" />
-                <FormControlLabel value="sub 24hrs" control={<Radio />} label="100 miles in sub 24hrs" />
-                <FormControlLabel value="sub 20hrs" control={<Radio />} label="50 miles in sub 20hrs" />
-                <FormControlLabel value="sub 15hrs" control={<Radio />} label="50 miles in sub 15hrs" />
+                <FormControlLabel disabled={distance === 50 } value="sub 36hrs" control={<Radio />} label="100 miles in sub 36hrs" />
+                <FormControlLabel disabled={distance === 50 } value="sub 30hrs" control={<Radio />} label="100 miles in sub 30hrs" />
+                <FormControlLabel  disabled={distance === 50 }value="sub 24hrs" control={<Radio />} label="100 miles in sub 24hrs" />
+                <FormControlLabel disabled={distance === 100 }value="sub 20hrs" control={<Radio />} label="50 miles in sub 20hrs" />
+                <FormControlLabel disabled={distance === 100 } value="sub 15hrs" control={<Radio />} label="50 miles in sub 15hrs" />
             </RadioGroup>
-            {/* <Radio
-        checked={timeEstimate === 'sub 36hrs'}
-        onChange={(e)=> setTimeEstimate(e.target.value)}
-        value="sub 36hrs"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': 'sub 36hrs' }}
-      /> */}
         </FormControl>
     </Dialog>
  );
