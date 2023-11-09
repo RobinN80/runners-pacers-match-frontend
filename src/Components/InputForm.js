@@ -4,6 +4,7 @@ import {FormControl, Dialog, DialogTitle, TextField, InputLabel, Select, MenuIte
 const InputForm  = (props) => {
     const {participantFormType, handleClose, open} = props;
     const [gender, setGender] = useState('');
+    const [partnerGender, setPartnerGender] = useState('none')
     const [distance, setDistance] = useState(0);
     const [timeEstimate, setTimeEstimate] = useState('');
     console.log('time estimate', timeEstimate);
@@ -35,7 +36,7 @@ const InputForm  = (props) => {
         <FormControl>
             <TextField id='age' label="Age" required defaultValue="" placeholder='Age'>Name</TextField>
         </FormControl>
-        <FormControl>
+        <FormControl >
             <InputLabel id="select-gender">Gender</InputLabel>
             <Select
                 labelId="select-gender"
@@ -77,6 +78,53 @@ const InputForm  = (props) => {
                 </MenuItem>
             </Select>
         </FormControl>
+        <FormControl >
+            <InputLabel id="select-gender-preference">Prefered Gender of Partner</InputLabel>
+            <Select
+                labelId="select-gender-preference"
+                // id="demo-simple-select-label"
+                value={partnerGender}
+                required
+                label="Select Gender"
+                // placeholder='Select Gender'
+                inputProps={{
+                    name: 'prefered gender',
+                    id: 'select-gender-preference'
+                }}
+                onChange={(e)=>setPartnerGender(e.target.value)}
+            >
+                <MenuItem 
+                value={'none'}
+                >
+                    None
+                </MenuItem>
+                <MenuItem 
+                value={'male'}
+                >
+                    Male
+                </MenuItem>
+                <MenuItem 
+                value={'female'}
+                >
+                    Female
+                </MenuItem>
+                <MenuItem 
+                value={'transgender woman'}
+                >
+                    Transgender Woman
+                </MenuItem>
+                <MenuItem 
+                value={'transgender man'}
+                >
+                    Transgender Man
+                </MenuItem>
+                <MenuItem 
+                value={'non-binary'}
+                >
+                    Non-Binary
+                </MenuItem>
+            </Select>
+        </FormControl>
         <FormControl>
             <InputLabel id="select-distance">Distance</InputLabel>
             <Select
@@ -86,7 +134,7 @@ const InputForm  = (props) => {
                 label="Distance"
                 onChange={handleChangeDistance}
                 inputProps={{
-                    name: '',
+                    name: 'distance',
                     id: 'select-distance'
                 }}
             >
@@ -94,27 +142,8 @@ const InputForm  = (props) => {
                 <MenuItem value={100}>100</MenuItem>
             </Select>
         </FormControl>
-        {/* <FormControl>
-            <InputLabel id="select-time-estimate">Time Estimate to Finish</InputLabel>
-            <Select
-                labelId="select-time-estimate"
-                id="demo-simple-select"
-                value={timeEstimate}
-                label="Time Estimate"
-                onChange={handleChangeDistance}
-                inputProps={{
-                    name: '',
-                    id: 'select-time-estimate'
-                }}
-            >
-                <MenuItem value='100 miles in sub 36hrs'>100 miles in sub 36hrs</MenuItem>
-                <MenuItem value='100 miles in sub 30 hours'>100 miles in sub 30 hours</MenuItem>
-                <MenuItem value='100 miles in sub 24 hours'>100 miles in sub 24 hours</MenuItem>
-                <MenuItem value='50 miles in sub 20 hours'>50 miles in sub 20 hours</MenuItem>
-                <MenuItem value='50 miles in sub 15 hours'>50 miles in sub 15 hours</MenuItem>
-                <MenuItem value=''></MenuItem>
-            </Select>
-        </FormControl> */}
+        
+            
         <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">Time Estimate to Finish</FormLabel>
             <RadioGroup
