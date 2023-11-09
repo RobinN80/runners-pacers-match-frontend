@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import ParticipantDisplayGrid from "./Grid";
-import InputForm from './InputForm';
+// import InputForm from './InputForm';
+import InputFormRunners from './InputFormRunners';
 
 // const participantTypes = [runner, pacer];
 
@@ -41,7 +42,7 @@ const handleClickPacerForm = () =>{
         </span>
        </div>
        <ParticipantDisplayGrid participantType={participantType}/>
-       <InputForm setOpen={() => setOpen()} participantFormType={participantFormType} open={open} />
+       <InputFormRunners setOpen={() => setOpen()} participantFormType={participantFormType} open={open} />
     </div>
  )
 }
