@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
-import {FormControl, Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel, Radio, IconButton} from '@mui/material';
+import {FormControl, Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel, Radio, IconButton, DialogActions, Button} from '@mui/material';
 
 const InputForm  = (props) => {
-    const {participantFormType, handleClose, open} = props;
+    const {participantFormType, open, setOpen} = props;
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [age, setAge] = useState(0);
@@ -24,6 +24,16 @@ const InputForm  = (props) => {
     const handleChangeDistance = (event) => {
         setDistance(event.target.value)
     };
+    const handleClose = () => {
+        setOpen(false);
+        setName('');
+        setEmail('');
+        setAge(0);
+        setGender('');
+        setDistance(0);
+        setPartnerGender('');
+        setTimeEstimate('');
+    }
  return (
     <Dialog open={open} onClose={handleClose}>
         <DialogTitle maxWidth={'md'}>
@@ -176,6 +186,11 @@ const InputForm  = (props) => {
                 <FormControlLabel disabled={distance === 100 } value="sub 15hrs" control={<Radio />} label="50 miles in sub 15hrs" />
             </RadioGroup>
         </FormControl>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Close
+          </Button>
+        </DialogActions>
         </DialogContent>
     </Dialog>
  );

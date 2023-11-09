@@ -20,9 +20,9 @@ const handleClickPacerForm = () =>{
     setOpen(true);
     setParticipantFormType('pacer');
 }
-const handleClose = () => {
-    setOpen(false)
-}
+// const handleClose = () => {
+//     setOpen(false)
+// }
 
  return(
     <div>
@@ -41,7 +41,7 @@ const handleClose = () => {
         </span>
        </div>
        <ParticipantDisplayGrid participantType={participantType}/>
-       <InputForm handleClose={() => handleClose()} participantFormType={participantFormType} open={open} />
+       <InputForm setOpen={() => setOpen()} participantFormType={participantFormType} open={open} />
     </div>
  )
 }
