@@ -1,10 +1,12 @@
 import {useState, useEffect} from 'react';
-import {FormControl, Dialog, DialogTitle, TextField, InputLabel, Select, MenuItem} from '@mui/material';
+import {FormControl, Dialog, DialogTitle, TextField, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel, Radio} from '@mui/material';
 
 const InputForm  = (props) => {
     const {participantFormType, handleClose, open} = props;
     const [gender, setGender] = useState('');
     const [distance, setDistance] = useState(0);
+    const [timeEstimate, setTimeEstimate] = useState('');
+    console.log('time estimate', timeEstimate);
 
     useEffect(() => {
         setGender('');
@@ -75,7 +77,7 @@ const InputForm  = (props) => {
                 </MenuItem>
             </Select>
         </FormControl>
-        <FormControl fullWidth>
+        <FormControl>
             <InputLabel id="select-distance">Distance</InputLabel>
             <Select
                 labelId="select-distance"
@@ -91,6 +93,50 @@ const InputForm  = (props) => {
                 <MenuItem value={50}>50</MenuItem>
                 <MenuItem value={100}>100</MenuItem>
             </Select>
+        </FormControl>
+        {/* <FormControl>
+            <InputLabel id="select-time-estimate">Time Estimate to Finish</InputLabel>
+            <Select
+                labelId="select-time-estimate"
+                id="demo-simple-select"
+                value={timeEstimate}
+                label="Time Estimate"
+                onChange={handleChangeDistance}
+                inputProps={{
+                    name: '',
+                    id: 'select-time-estimate'
+                }}
+            >
+                <MenuItem value='100 miles in sub 36hrs'>100 miles in sub 36hrs</MenuItem>
+                <MenuItem value='100 miles in sub 30 hours'>100 miles in sub 30 hours</MenuItem>
+                <MenuItem value='100 miles in sub 24 hours'>100 miles in sub 24 hours</MenuItem>
+                <MenuItem value='50 miles in sub 20 hours'>50 miles in sub 20 hours</MenuItem>
+                <MenuItem value='50 miles in sub 15 hours'>50 miles in sub 15 hours</MenuItem>
+                <MenuItem value=''></MenuItem>
+            </Select>
+        </FormControl> */}
+        <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Time Estimate to Finish</FormLabel>
+            <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="sub 36hrs"
+                name="radio-buttons-group"
+                value={timeEstimate}
+                onChange={(e)=> setTimeEstimate(e.target.value)}
+            >
+                <FormControlLabel  value="sub 36hrs" control={<Radio />} label="100 miles in sub 36hrs" />
+                <FormControlLabel value="sub 30hrs" control={<Radio />} label="100 miles in sub 30hrs" />
+                <FormControlLabel value="sub 24hrs" control={<Radio />} label="100 miles in sub 24hrs" />
+                <FormControlLabel value="sub 20hrs" control={<Radio />} label="50 miles in sub 20hrs" />
+                <FormControlLabel value="sub 15hrs" control={<Radio />} label="50 miles in sub 15hrs" />
+            </RadioGroup>
+            {/* <Radio
+        checked={timeEstimate === 'sub 36hrs'}
+        onChange={(e)=> setTimeEstimate(e.target.value)}
+        value="sub 36hrs"
+        name="radio-buttons"
+        inputProps={{ 'aria-label': 'sub 36hrs' }}
+      /> */}
         </FormControl>
     </Dialog>
  );
