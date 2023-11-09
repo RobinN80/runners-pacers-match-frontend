@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {FormControl, Dialog, DialogTitle, TextField, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel, Radio} from '@mui/material';
+import {FormControl, Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel, Radio, IconButton} from '@mui/material';
 
 const InputForm  = (props) => {
     const {participantFormType, handleClose, open} = props;
@@ -29,6 +29,19 @@ const InputForm  = (props) => {
         <DialogTitle maxWidth={'md'}>
             {`${participantFormType.toUpperCase()} add your info to the board`} 
         </DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          X
+        </IconButton>
+        <DialogContent>
         <FormControl>
             {/* <InputLabel id="name">Name</InputLabel> */}
             <TextField id='name' label="Name" onChange={(e)=>setName(e.target.value)} required  placeholder='Full Name'>Name</TextField>
@@ -163,6 +176,7 @@ const InputForm  = (props) => {
                 <FormControlLabel disabled={distance === 100 } value="sub 15hrs" control={<Radio />} label="50 miles in sub 15hrs" />
             </RadioGroup>
         </FormControl>
+        </DialogContent>
     </Dialog>
  );
 
