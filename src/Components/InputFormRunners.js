@@ -108,8 +108,10 @@ const InputFormRunners  = (props) => {
                     </MenuItem>
                 </Select>
             </Grid>
-            <Grid item xs={12} sm={5}>
-                <InputLabel id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
+            <Grid item xs={12} sm={5} >
+                <InputLabel 
+                // htmlfor='select-gender-preference'
+                id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
                 <Select
                     labelId="select-gender-preference"
                     // id="demo-simple-select-label"
@@ -123,6 +125,9 @@ const InputFormRunners  = (props) => {
                     }}
                     onChange={(e)=>setPartnerGender(e.target.value)}
                 >
+                    <MenuItem value="none" disabled>
+                        Prefered Gender of Pacer
+                    </MenuItem>
                     <MenuItem 
                     value={'none'}
                     >
