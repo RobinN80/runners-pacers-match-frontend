@@ -1,0 +1,9 @@
+#box {
+    height: fit-content;
+    width: fit-content;
+    /* background-color: white; */
+}
+
+#item {
+    color: white;
+}
