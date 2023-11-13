@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, FormControl, IconButton, DialogActions, Button, Grid
 } from '@mui/material';
+import SelectGender from './Forms/SelectGender';
 
 const InputFormRunners  = (props) => {
     const {participantFormType, open, setOpen} = props;
@@ -69,46 +70,9 @@ const InputFormRunners  = (props) => {
                 </FormControl>
             </Grid>
             <Grid item xs={12} sm={3}>
-                <InputLabel id="select-gender">Runner Gender</InputLabel>
-                <Select
-                    labelId="select-gender"
-                    // id="demo-simple-select-label"
-                    value={gender}
-                    required
-                    label="Select Gender"
-                    // placeholder='Select Gender'
-                    inputProps={{
-                        name: 'gender',
-                        id: 'select-gender'
-                    }}
-                    onChange={handleChangeGender}
-                >
-                    <MenuItem 
-                    value={'male'}
-                    >
-                        Male
-                    </MenuItem>
-                    <MenuItem 
-                    value={'female'}
-                    >
-                        Female
-                    </MenuItem>
-                    <MenuItem 
-                    value={'transgender woman'}
-                    >
-                        Transgender Woman
-                    </MenuItem>
-                    <MenuItem 
-                    value={'transgender man'}
-                    >
-                        Transgender Man
-                    </MenuItem>
-                    <MenuItem 
-                    value={'non-binary'}
-                    >
-                        Non-Binary
-                    </MenuItem>
-                </Select>
+                <FormControl>
+                    <SelectGender gender={gender} handleChangeGender={() => handleChangeGender} />
+                </FormControl>
             </Grid>
             <Grid item xs={12} sm={5} >
                 <InputLabel id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
