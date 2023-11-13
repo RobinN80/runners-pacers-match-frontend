@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import {
-    // FormControl, 
-    Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel, Radio, IconButton, DialogActions, Button, Grid
+    Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, FormControl, IconButton, DialogActions, Button, Grid
 } from '@mui/material';
 
 const InputFormRunners  = (props) => {
@@ -13,7 +12,8 @@ const InputFormRunners  = (props) => {
     const [partnerGender, setPartnerGender] = useState('none')
     const [distance, setDistance] = useState(0);
     const [timeEstimate, setTimeEstimate] = useState('');
-    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate);
+    const [familiarity, setFamiliarity] = useState('')
+    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity);
 
     useEffect(() => {
         setGender('');
@@ -64,7 +64,9 @@ const InputFormRunners  = (props) => {
                 <TextField id='email address' onChange={(e)=>setEmail(e.target.value)} label="Email Address" required placeholder='Email Address, be sure it is correct!'>Email Adddress</TextField>
             </Grid>
             <Grid item xs={12}>
+                <FormControl>
                 <TextField id='age' label="Age" required onChange={(e)=>setAge(e.target.value)} placeholder='Age'>Age</TextField>
+                </FormControl>
             </Grid>
             <Grid item xs={12} sm={3}>
                 <InputLabel id="select-gender">Runner Gender</InputLabel>
@@ -109,9 +111,7 @@ const InputFormRunners  = (props) => {
                 </Select>
             </Grid>
             <Grid item xs={12} sm={5} >
-                <InputLabel 
-                // htmlfor='select-gender-preference'
-                id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
+                <InputLabel id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
                 <Select
                     labelId="select-gender-preference"
                     // id="demo-simple-select-label"
@@ -161,7 +161,8 @@ const InputFormRunners  = (props) => {
                 </Select>
             </Grid>
             <Grid item xs={12} sm={3}> 
-                <InputLabel id="select-distance">Distance</InputLabel>
+            <FormControl>
+                <FormLabel id="select-distance">Distance</FormLabel>
                 <Select
                     labelId="select-distance"
                     id="demo-simple-select"
@@ -176,12 +177,27 @@ const InputFormRunners  = (props) => {
                     <MenuItem value={50}>50</MenuItem>
                     <MenuItem value={100}>100</MenuItem>
                 </Select>
+            </FormControl>
             </Grid>
             
                 
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
+                <FormControl>
                 <FormLabel id="demo-radio-buttons-group-label">Time Estimate to Finish</FormLabel>
-                <RadioGroup
+                <Select 
+                labelId="demo-radio-buttons-group-label"
+                value={timeEstimate}
+                onChange={(e)=> setTimeEstimate(e.target.value)}
+                label="Time Estimate"
+                >
+                    <MenuItem disabled={distance === 50 } value="sub 36hrs"> 100 miles in sub 36hrs</MenuItem>
+                    <MenuItem disabled={distance === 50 } value="sub 30hrs"> 100 miles in sub 30hrs</MenuItem>
+                    <MenuItem disabled={distance === 50 } value="sub 24hrs"> 100 miles in sub 24hrs</MenuItem>
+                    <MenuItem disabled={distance === 100 } value="sub 20hrs"> 50 miles in sub 20hrs</MenuItem>
+                    <MenuItem disabled={distance === 100 } value="sub 15hrs"> 50 miles in sub 15hrs</MenuItem>
+                </Select>
+                </FormControl>
+                {/* <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="sub 36hrs"
                     name="radio-buttons-group"
@@ -193,7 +209,21 @@ const InputFormRunners  = (props) => {
                     <FormControlLabel  disabled={distance === 50 }value="sub 24hrs" control={<Radio />} label="100 miles in sub 24hrs" />
                     <FormControlLabel disabled={distance === 100 }value="sub 20hrs" control={<Radio />} label="50 miles in sub 20hrs" />
                     <FormControlLabel disabled={distance === 100 } value="sub 15hrs" control={<Radio />} label="50 miles in sub 15hrs" />
-                </RadioGroup>
+                </RadioGroup> */}
+            </Grid>
+            <Grid item xs={12} sm={4}>
+                <FormControl>
+                    <FormLabel id="familiarity-with-cource-label">Familiarity With Course</FormLabel>
+                    <Select
+                     labelId="familiarity-with-cource-label"
+                     value={familiarity}
+                     onChange={(e)=>setFamiliarity(e.target.value)}
+                    >
+                        <MenuItem value="none">None</MenuItem>
+                        <MenuItem value="some">Some</MenuItem>
+                        <MenuItem value="whole course">Whole Course</MenuItem>
+                    </Select>
+                </FormControl>
             </Grid>
         </Grid>
         <DialogActions>
