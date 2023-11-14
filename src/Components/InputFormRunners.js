@@ -3,6 +3,7 @@ import {
     Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, FormControl, IconButton, DialogActions, Button, Grid
 } from '@mui/material';
 import SelectGender from './Forms/SelectGender';
+import SelectDistance from './Forms/SelectDistance';
 
 const InputFormRunners  = (props) => {
     const {participantFormType, open, setOpen} = props;
@@ -23,6 +24,9 @@ const InputFormRunners  = (props) => {
 
     const handleChangeGender = (event) => {
         setGender(event.target.value)
+    };
+    const handleChangePartnerGender = (event) => {
+        setPartnerGender(event.target.value)
     };
 
     const handleChangeDistance = (event) => {
@@ -69,65 +73,24 @@ const InputFormRunners  = (props) => {
                 <TextField id='age' label="Age" required onChange={(e)=>setAge(e.target.value)} placeholder='Age'>Age</TextField>
                 </FormControl>
             </Grid>
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={4}>
                 <FormControl>
-                    <SelectGender gender={gender} handleChangeGender={() => handleChangeGender} />
+                <FormLabel id="select-gender">Runner Gender</FormLabel>
+                    <SelectGender gender={gender} handleChangeGender={() => handleChangeGender} labelId="select-gender" />
                 </FormControl>
             </Grid>
-            <Grid item xs={12} sm={5} >
+            <Grid item xs={12} sm={4} >
                 <InputLabel id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
-                <Select
-                    labelId="select-gender-preference"
-                    // id="demo-simple-select-label"
-                    value={partnerGender}
-                    required
-                    label="Select Gender"
-                    // placeholder='Select Gender'
-                    inputProps={{
-                        name: 'prefered gender',
-                        id: 'select-gender-preference'
-                    }}
-                    onChange={(e)=>setPartnerGender(e.target.value)}
-                >
-                    <MenuItem value="none" disabled>
-                        Prefered Gender of Pacer
-                    </MenuItem>
-                    <MenuItem 
-                    value={'none'}
-                    >
-                        None
-                    </MenuItem>
-                    <MenuItem 
-                    value={'male'}
-                    >
-                        Male
-                    </MenuItem>
-                    <MenuItem 
-                    value={'female'}
-                    >
-                        Female
-                    </MenuItem>
-                    <MenuItem 
-                    value={'transgender woman'}
-                    >
-                        Transgender Woman
-                    </MenuItem>
-                    <MenuItem 
-                    value={'transgender man'}
-                    >
-                        Transgender Man
-                    </MenuItem>
-                    <MenuItem 
-                    value={'non-binary'}
-                    >
-                        Non-Binary
-                    </MenuItem>
-                </Select>
+                    <SelectGender gender={partnerGender} handleChangeGender={() => handleChangePartnerGender} labelId="select-gender-preference" />
             </Grid>
             <Grid item xs={12} sm={3}> 
             <FormControl>
                 <FormLabel id="select-distance">Distance</FormLabel>
-                <Select
+                <SelectDistance 
+                    distance={distance}
+                    handleChangeDistance={()=>handleChangeDistance}
+                />
+                {/* <Select
                     labelId="select-distance"
                     id="demo-simple-select"
                     value={distance}
@@ -140,7 +103,7 @@ const InputFormRunners  = (props) => {
                 >
                     <MenuItem value={50}>50</MenuItem>
                     <MenuItem value={100}>100</MenuItem>
-                </Select>
+                </Select> */}
             </FormControl>
             </Grid>
             

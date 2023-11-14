@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FormLabel, Select, MenuItem} from '@mui/material';
 const SelectGender = (props) => {
 
-    const {gender, handleChangeGender} = props;
+    const {gender, handleChangeGender, labelId} = props;
+    const display = labelId ==="select-gender-preference" ? "block" : "none";
+    // console.log(visibility, "vis", labelId) ;
     return(
         <div>
-            <FormLabel id="select-gender">Runner Gender</FormLabel>
+            
                 <Select
-                    labelId="select-gender"
+                    labelId={labelId}
                     // id="demo-simple-select-label"
                     value={gender}
                     required
@@ -19,6 +21,9 @@ const SelectGender = (props) => {
                     }}
                     onChange={handleChangeGender()}
                 >
+                    <MenuItem style={{display: `${display}` }} value={'none'}>
+                        None
+                    </MenuItem>
                     <MenuItem 
                     value={'male'}
                     >
@@ -44,6 +49,7 @@ const SelectGender = (props) => {
                     >
                         Non-Binary
                     </MenuItem>
+                    
                 </Select>
         </div>
     );
