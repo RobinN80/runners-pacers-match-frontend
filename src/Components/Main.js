@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import ParticipantDisplayGrid from "./Grid";
 // import InputForm from './InputForm';
-import InputFormRunners from './InputFormRunners';
+import InputFormRunners from './Forms/InputFormRunners';
 import FilterDisplay from './FilterDisplay';
 // const participantTypes = [runner, pacer];
 

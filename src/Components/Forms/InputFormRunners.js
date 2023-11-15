@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {
     Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, FormControl, IconButton, DialogActions, Button, Grid
 } from '@mui/material';
-import SelectGender from './Forms/SelectGender';
-import SelectDistance from './Forms/SelectDistance';
+import SelectGender from './SelectGender';
+import SelectDistance from './SelectDistance';
 
 const InputFormRunners  = (props) => {
     const {participantFormType, open, setOpen} = props;
