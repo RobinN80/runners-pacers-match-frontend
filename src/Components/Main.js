@@ -41,7 +41,7 @@ const handleClickPacerForm = () =>{
             <button onClick={()=>(setParticipantType('runners'))}>SEE LIST: <strong>Pacers</strong> looking for a runner?</button>
         </span>
        </div>
-       <FilterDisplay />
+       {/* <FilterDisplay /> */}
        <ParticipantDisplayGrid participantType={participantType}/>
        <InputFormRunners setOpen={() => setOpen()} participantFormType={participantFormType} open={open} />
     </div>

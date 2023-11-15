@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Runners, Pacers } from '../shared/runners-pacers-mock-data';
+import FilterDisplay from './FilterDisplay';
 
 const columnsRunners = [
     {field: 'name', headerName: 'Name', width: 150},
@@ -40,7 +41,9 @@ const ParticipantDisplayGrid = (props) => {
 
     return (
         <div style={{height: 400, width: '100%'}}>
+            
             <p>{participantType.toUpperCase()}</p>
+            {/* <FilterDisplay style={{backgroundColor: 'white', padding: 25}}/> */}
             <DataGrid style={{backgroundColor: 'white', padding: 25}} rows={rowData} columns={columnData}/>
         </div>
     );
