@@ -13,9 +13,33 @@ const columnsRunners = [
     {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
 ]
 
+const columnsPacers = [
+    {field: 'name', headerName: 'Name', width: 150},
+    {field: 'gender', headerName: 'Gender', width: 150},
+    {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
+    {field: 'pacersDistance', headerName: 'Distance', width: 150},
+    {field: 'pacerTimeEstimate', headerName: 'Time Estimate', width: 150},
+    {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
+]
+
 
 const SimpleDataGrid = (props) => {
-const [ isMobile, setIsMobile] = useState(true);
+    const [rowData, setRowData ] = useState([]);
+    const [columnData, setColumnData ] = useState(columnsRunners)
+    const [ isMobile, setIsMobile] = useState(true);
+    const {participantType} = props;
+
+    useEffect(() => {
+        if(participantType === 'runners'){
+            setRowData(Runners);
+            setColumnData(columnsRunners)
+        }
+        if(participantType === 'pacers'){
+            setRowData(Pacers);
+            setColumnData(columnsPacers)
+        }
+    }, [participantType]);
+
 //  const {participantType} = props;
 let windowWidth = window.innerWidth;
 
@@ -41,16 +65,16 @@ useEffect(() =>{
             <table border="1" className='main-table'>
                     <thead>
                         <tr>
-                            {columnsRunners.map((column) => (
+                            {columnData.map((column) => (
                                 <th key={column.field}>{column.headerName}</th>
                             ))}
                         </tr>
                     </thead>
                     <tbody>
-                        {Runners.map((runner)=> (
-                            <tr key={runner.id}>
-                                {columnsRunners.map((column)=> (
-                                    <td key={runner.id + column.field}>{runner[column.field]}</td>
+                        {rowData.map((row)=> (
+                            <tr key={row.id}>
+                                {columnData.map((column)=> (
+                                    <td key={row.id + column.field}>{row[column.field]}</td>
                                 ))}
                             </tr>
                         ))}
@@ -62,12 +86,12 @@ useEffect(() =>{
     const renderMobileView = () => {
         return(
             <table className="main-table mobile-table">
-                {Runners.map((runner) => (
-                <thead key={runner.id} className='mobile-table'>
-                    {columnsRunners.map((column) => (
-                        <tr key={runner.id + column.field}>
+                {rowData.map((row) => (
+                <thead key={row.id} className='mobile-table'>
+                    {columnData.map((column) => (
+                        <tr key={row.id + column.field}>
                             <div><h3>{column.headerName}:</h3></div>
-                            <p>{runner[column.field]}</p>
+                            <p>{row[column.field]}</p>
                         </tr>
                     ))}
                 </thead> 
