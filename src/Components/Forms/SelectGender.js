@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormLabel, Select, MenuItem} from '@mui/material';
+import { Select, MenuItem} from '@mui/material';
 const SelectGender = (props) => {
 
     const {gender, handleChangeGender, labelId} = props;
