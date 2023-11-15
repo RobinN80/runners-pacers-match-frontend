@@ -1,8 +1,9 @@
 import {useState} from 'react';
 import ParticipantDisplayGrid from "./Grid";
+import SimpleDataGrid from './SimpleDataGrid';
 // import InputForm from './InputForm';
 import InputFormRunners from './Forms/InputFormRunners';
-import FilterDisplay from './FilterDisplay';
+// import FilterDisplay from './FilterDisplay';
 // const participantTypes = [runner, pacer];
 
 const Main = () => {
@@ -42,7 +43,8 @@ const handleClickPacerForm = () =>{
         </span>
        </div>
        {/* <FilterDisplay /> */}
-       <ParticipantDisplayGrid participantType={participantType}/>
+       {/* <ParticipantDisplayGrid participantType={participantType}/> */}
+       <SimpleDataGrid participantFormType={participantType} />
        <InputFormRunners setOpen={() => setOpen()} participantFormType={participantFormType} open={open} />
     </div>
  )
