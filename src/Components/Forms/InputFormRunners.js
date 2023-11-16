@@ -15,7 +15,8 @@ const InputFormRunners  = (props) => {
     const [distance, setDistance] = useState(0);
     const [timeEstimate, setTimeEstimate] = useState('');
     const [familiarity, setFamiliarity] = useState('')
-    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity);
+    const [moreInfo, setMoreInfo] = useState('');
+    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity, moreInfo);
 
     useEffect(() => {
         setGender('');
@@ -153,6 +154,10 @@ const InputFormRunners  = (props) => {
                 </FormControl>
             </Grid>
         </Grid>
+        <Grid item xs={12}>
+                {/* <InputLabel id="more-info">More Info</InputLabel> */}
+                <TextField multiline id='more-info' label="Additonal Comments" onChange={(e)=>setMoreInfo(e.target.value)}   placeholder='Additional inforrmation you would like to add'>Additional Information You'd Like To Add</TextField>
+            </Grid>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
             Close
