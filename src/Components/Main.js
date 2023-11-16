@@ -2,6 +2,7 @@ import {useState} from 'react';
 import ParticipantDisplayGrid from "./Grid";
 // import InputForm from './InputForm';
 import InputFormRunners from './Forms/InputFormRunners';
+import InputFormPacers from './Forms/InputFormPacers';
 import FilterDisplay from './FilterDisplay';
 // const participantTypes = [runner, pacer];
 
@@ -10,15 +11,16 @@ const Main = () => {
  const [participantFormType, setParticipantFormType] = useState('')
 //  const [runnerFormOpen, setRunnerFormOpen] =useState(false);
 //  const [pacerFormOpen, setPacerFormOpen] = useState(false);
- const [open, setOpen] = useState(false);
+ const [runnerFormOpen, setRunnerFormOpen] = useState(false);
+ const [pacerFormOpen, setPacerFormOpen] = useState(false);
 
  
  const handleClickRunnerForm = () => {
-    setOpen(true);
+    setRunnerFormOpen(true);
     setParticipantFormType('runner');
 }
 const handleClickPacerForm = () =>{
-    setOpen(true);
+    setPacerFormOpen(true);
     setParticipantFormType('pacer');
 }
 // const handleClose = () => {
@@ -43,7 +45,8 @@ const handleClickPacerForm = () =>{
        </div>
        {/* <FilterDisplay /> */}
        <ParticipantDisplayGrid participantType={participantType}/>
-       <InputFormRunners setOpen={() => setOpen()} participantFormType={participantFormType} open={open} />
+       <InputFormRunners setOpen={() => setRunnerFormOpen()} participantFormType={participantFormType} open={runnerFormOpen} />
+       <InputFormPacers setOpen={() => setPacerFormOpen()} participantFormType={participantFormType} open={pacerFormOpen}/>
     </div>
  )
 }

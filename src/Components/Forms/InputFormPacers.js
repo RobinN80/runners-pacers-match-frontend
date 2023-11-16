@@ -11,17 +11,18 @@ const InputFormPacers  = (props) => {
     const [email, setEmail] = useState('');
     const [age, setAge] = useState(0);
     const [gender, setGender] = useState('');
-    const [partnerGender, setPartnerGender] = useState('none')
-    const [distance, setDistance] = useState(0);
+    const [partnerGender, setPartnerGender] = useState('')
+    const [startingPoint, setStartingPoint] = useState('');
     const [timeEstimate, setTimeEstimate] = useState('');
     const [familiarity, setFamiliarity] = useState('')
     const [moreInfo, setMoreInfo] = useState('');
-    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity, moreInfo);
 
-    useEffect(() => {
-        setGender('');
-        setDistance(0);
-    },[])
+    console.log('all the states', name, email, age, gender, partnerGender, startingPoint, timeEstimate, familiarity, moreInfo);
+
+    // useEffect(() => {
+    //     setGender('');
+    //     setStartingPoint('');
+    // },[])
 
     const handleChangeGender = (event) => {
         setGender(event.target.value)
@@ -30,16 +31,13 @@ const InputFormPacers  = (props) => {
         setPartnerGender(event.target.value)
     };
 
-    const handleChangeDistance = (event) => {
-        setDistance(event.target.value)
-    };
     const handleClose = () => {
         setOpen(false);
         setName('');
         setEmail('');
         setAge(0);
         setGender('');
-        setDistance(0);
+        setStartingPoint('');
         setPartnerGender('');
         setTimeEstimate('');
     }
@@ -84,7 +82,21 @@ const InputFormPacers  = (props) => {
                 <InputLabel id="select-gender-preference">Prefered Gender of Pacer</InputLabel>
                     <SelectGender gender={partnerGender} handleChangeGender={() => handleChangePartnerGender} labelId="select-gender-preference" />
             </Grid>
-            
+            <Grid>
+                <FormControl>
+                    <FormLabel id="starting-point">Prefered Starting Point</FormLabel>
+                    <Select 
+                        labelId="starting-point"
+                        value={startingPoint}
+                        onChange={(e)=> setStartingPoint(e.target.value)}
+                        label="Starting Point"
+                        >
+                        <MenuItem  value="40 mi"> 42 mile marker</MenuItem>
+                        <MenuItem  value="72 mile"> 72 mile marker</MenuItem>
+                        <MenuItem value="none">None</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
                 
             <Grid item xs={12} sm={6}>
                 <FormControl>
