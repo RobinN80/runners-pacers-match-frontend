@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { Runners, Pacers } from "../shared/runners-pacers-mock-data";
 import '../CompnentCSS/Grid.css'
-import {Box, Card, CardActions, CardContent, Button, Typography} from '@mui/material';
+// import {Box, Card, CardActions, CardContent, Button, Typography} from '@mui/material';
 
 const columnsRunners = [
-    {field: 'name', headerName: 'Name', width: 150},
+    {field: 'name', headerName: 'Runner Initials', width: 150},
     {field: 'gender', headerName: 'Gender', width: 150},
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
     {field: 'runnerDistance', headerName: 'Distance', width: 150},
@@ -14,7 +14,7 @@ const columnsRunners = [
 ]
 
 const columnsPacers = [
-    {field: 'name', headerName: 'Name', width: 150},
+    {field: 'name', headerName: 'Pacer Initials', width: 150},
     {field: 'gender', headerName: 'Gender', width: 150},
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
     {field: 'pacersDistance', headerName: 'Distance', width: 150},
@@ -58,33 +58,38 @@ useEffect(() =>{
     handleWindowSize();
     return () => window.removeEventListener('resize', handleWindowSize);
 });
+    const singular = participantType==="runners"? "Runner": "Pacer"
 
     console.log(isMobile, 'ismobile', windowWidth);
     const renderDeskTopView = () => {
         return(
-            <table border="1" className='main-table'>
-                    <thead>
-                        <tr>
-                            {columnData.map((column) => (
-                                <th key={column.field}>{column.headerName}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rowData.map((row)=> (
-                            <tr key={row.id}>
-                                {columnData.map((column)=> (
-                                    <td key={row.id + column.field}>{row[column.field]}</td>
+            <div style={{height: 400, width: '100%'}}>
+                <table border="1" className='main-table'>
+                        <thead>
+                            <tr>
+                                {columnData.map((column) => (
+                                    <th key={column.field}>{column.headerName}</th>
                                 ))}
                             </tr>
-                        ))}
-                    </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            {rowData.map((row)=> (
+                                <tr key={row.id}>
+                                    {columnData.map((column)=> (
+                                        <td key={row.id + column.field}>{row[column.field]}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                </table>
+            </div>
         );
     }
 
     const renderMobileView = () => {
         return(
+            <div style={{height: 400, width: '100%'}}>
+                
             <table className="main-table mobile-table">
                 {rowData.map((row) => (
                 <thead key={row.id} className='mobile-table'>
@@ -94,9 +99,11 @@ useEffect(() =>{
                             <p>{row[column.field]}</p>
                         </tr>
                     ))}
+                    <button>{`Email ${singular}`}</button>
                 </thead> 
                 ))}
             </table>
+            </div>
 //             <Box className='main-table mobile-table' sx={{ minWidth: 275 }}>
 //             {Runners.map((runner) => (
 //                 <Card key={runner.id}>
@@ -120,6 +127,7 @@ useEffect(() =>{
 
     return(
     <>
+        <h2>{participantType.toUpperCase()}</h2>
         {isMobile ? renderMobileView() : renderDeskTopView()}
     </> 
         

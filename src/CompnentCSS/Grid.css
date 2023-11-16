@@ -7,9 +7,15 @@
     margin-top: 25px;
 }
 
+.main-table tr:hover {
+    background-color: aqua;
+}
+
 thead tr {
     font-weight: 400;
 }
+
+
 
 .main-table tbody tr{
     color: lightslategray;
@@ -27,6 +33,10 @@ thead tr {
 
 .mobile-table thead{
     margin-bottom: 20px;
+}
+
+.mobile-table :hover {
+    background-color: aqua;
 }
 
 .mobile-table tr{
