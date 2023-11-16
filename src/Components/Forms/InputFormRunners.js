@@ -18,10 +18,10 @@ const InputFormRunners  = (props) => {
     const [moreInfo, setMoreInfo] = useState('');
     console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity, moreInfo);
 
-    useEffect(() => {
-        setGender('');
-        setDistance(0);
-    },[])
+    // useEffect(() => {
+    //     setGender('');
+    //     setDistance(0);
+    // },[])
 
     const handleChangeGender = (event) => {
         setGender(event.target.value)
@@ -42,6 +42,7 @@ const InputFormRunners  = (props) => {
         setDistance(0);
         setPartnerGender('');
         setTimeEstimate('');
+        setMoreInfo('');
     }
  return (
     <Dialog open={open} onClose={handleClose}>

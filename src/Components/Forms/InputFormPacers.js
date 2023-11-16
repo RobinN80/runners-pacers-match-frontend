@@ -40,6 +40,7 @@ const InputFormPacers  = (props) => {
         setStartingPoint('');
         setPartnerGender('');
         setTimeEstimate('');
+        setMoreInfo('');
     }
  return (
     <Dialog open={open} onClose={handleClose}>
