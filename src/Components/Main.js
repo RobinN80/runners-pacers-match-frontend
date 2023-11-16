@@ -45,7 +45,8 @@ const handleClickPacerForm = () =>{
         </span>
        </div>
        {/* <FilterDisplay /> */}
-       <ParticipantDisplayGrid participantType={participantType}/>
+       {/* <ParticipantDisplayGrid participantType={participantType}/> */}
+       <SimpleDataGrid participantType={participantType} />
        <InputFormRunners setOpen={() => setRunnerFormOpen()} participantFormType={participantFormType} open={runnerFormOpen} />
        <InputFormPacers setOpen={() => setPacerFormOpen()} participantFormType={participantFormType} open={pacerFormOpen}/>
     </div>
