@@ -10,7 +10,7 @@ const columnsRunners = [
     {field: 'runnerDistance', headerName: 'Distance', width: 150},
     {field: 'runner50TimeEstimate', headerName: 'Time Estimate 50', width: 150},
     {field: 'runner100TimeEstimate', headerName: 'Time Estimate 100', width: 150},
-    {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
+    {field: 'familiarityOfCourse', headerName: 'Course Familiarity', width: 150},
 ]
 
 const columnsPacers = [
@@ -19,7 +19,7 @@ const columnsPacers = [
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
     {field: 'pacersDistance', headerName: 'Distance', width: 150},
     {field: 'pacerTimeEstimate', headerName: 'Time Estimate', width: 150},
-    {field: 'familiarityOfCourse', headerName: 'Familiarity With Course', width: 150},
+    {field: 'familiarityOfCourse', headerName: 'Course Familiarity', width: 150},
 ]
 
 

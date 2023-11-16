@@ -120,7 +120,7 @@ export const Pacers = [
         pacerStartingPoint: '72mi marker',
         preferedDistance: '28',
         pacerTimeEstimate: '10-15 minute mile',
-        familiarityOfCourse: 'none, parts or whole',
+        familiarityOfCourse: 'parts',
     },
     {
         id: 4, 
@@ -132,6 +132,6 @@ export const Pacers = [
         pacerStartingPoint: '40mi or 72mi marker',
         preferedDistance: '10',
         pacerTimeEstimate: 'sub 10 minute mile',
-        familiarityOfCourse: 'none, parts or whole',
+        familiarityOfCourse: 'whole',
     },
 ]
