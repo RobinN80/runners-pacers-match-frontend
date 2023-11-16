@@ -1,0 +1,51 @@
+.main-table thead{
+    background-color: aquamarine;
+    font-size: 20px;
+    color: black
+}
+.main-table {
+    margin-top: 25px;
+}
+
+.main-table tr:hover {
+    background-color: aqua;
+}
+
+thead tr {
+    font-weight: 400;
+}
+
+
+
+.main-table tbody tr{
+    color: lightslategray;
+    font-size: 16px;
+    /* margin-top: 20px; */
+}
+
+.main-table td {
+    font-weight: 400;
+}
+
+.mobile-table {
+    margin-bottom: 5%;
+}
+
+.mobile-table thead{
+    margin-bottom: 20px;
+}
+
+.mobile-table :hover {
+    background-color: aqua;
+}
+
+.mobile-table tr{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 30px;
+}
+
+.mobile-table h3{
+    margin-right: 10px;
+}

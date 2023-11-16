@@ -1,7 +1,7 @@
 export const Runners = [
     {
         id: 0,
-        name: 'Jane Smith',
+        name: 'Jane',
         emailAddress: 'jainsmith@email.com',
         age: '37',
         gender: 'female',
@@ -13,7 +13,7 @@ export const Runners = [
     },
     {
         id: 1,
-        name: 'Sarah Lucas',
+        name: 'Sarah',
         emailAddress: 'sarah@email.com',
         age: '52',
         gender: 'female',
@@ -25,7 +25,7 @@ export const Runners = [
     },
     {
         id: 2,
-        name: 'Frank Lin',
+        name: 'Frank',
         emailAddress: 'flin@email.com',
         age: '67',
         gender: 'male',
@@ -49,7 +49,7 @@ export const Runners = [
     },
     {
         id: 4,
-        name: 'Sally Holmes',
+        name: 'Sally',
         emailAddress: 'sholmes@email.com',
         age: '65',
         gender: 'female',
@@ -61,7 +61,7 @@ export const Runners = [
     },
     {
         id: 5,
-        name: 'Matt Davis',
+        name: 'Matt',
         emailAddress: 'matt@email.com',
         age: '42',
         gender: 'male',
@@ -76,7 +76,7 @@ export const Runners = [
 export const Pacers = [
     {
         id: 0, 
-        name: 'Samantha Davis',
+        name: 'Samantha',
         emailAddress: 's.davis@email.com',
         age: '40',
         gender: 'female',
@@ -120,7 +120,7 @@ export const Pacers = [
         pacerStartingPoint: '72mi marker',
         preferedDistance: '28',
         pacerTimeEstimate: '10-15 minute mile',
-        familiarityOfCourse: 'none, parts or whole',
+        familiarityOfCourse: 'parts',
     },
     {
         id: 4, 
@@ -132,6 +132,6 @@ export const Pacers = [
         pacerStartingPoint: '40mi or 72mi marker',
         preferedDistance: '10',
         pacerTimeEstimate: 'sub 10 minute mile',
-        familiarityOfCourse: 'none, parts or whole',
+        familiarityOfCourse: 'whole',
     },
 ]
