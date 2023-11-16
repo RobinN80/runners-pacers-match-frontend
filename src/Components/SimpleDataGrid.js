@@ -4,7 +4,7 @@ import '../CompnentCSS/Grid.css'
 // import {Box, Card, CardActions, CardContent, Button, Typography} from '@mui/material';
 
 const columnsRunners = [
-    {field: 'name', headerName: 'Runner Initials', width: 150},
+    {field: 'name', headerName: 'Runner', width: 150},
     {field: 'gender', headerName: 'Gender', width: 150},
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
     {field: 'runnerDistance', headerName: 'Distance', width: 150},
@@ -14,7 +14,7 @@ const columnsRunners = [
 ]
 
 const columnsPacers = [
-    {field: 'name', headerName: 'Pacer Initials', width: 150},
+    {field: 'name', headerName: 'Pacer', width: 150},
     {field: 'gender', headerName: 'Gender', width: 150},
     {field: 'partnerGenderPreference', headerName: 'Prefered Gender', width: 150},
     {field: 'pacersDistance', headerName: 'Distance', width: 150},
