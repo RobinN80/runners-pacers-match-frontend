@@ -12,8 +12,8 @@ export default function BasicAccordion(props) {
     const {participantType} = props;
 
     const handleClick = (e) => {
-        alert(e.target);
-        console.log(e, 'handleclick');
+        alert(`${participantType} id number: ${e.target.value}`);
+        // console.log(e, 'handleclick');
     }
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function BasicAccordion(props) {
         }
     }, [participantType]);
   return (
-    <div style={{margin: "20px 20px 0 0"}}>
+    <div style={{margin: "20px 10px 0 0"}}>
         <h3>{participantType.toUpperCase()}</h3>
         {data.map((participant) => (
             <Accordion key={participant.id}>
@@ -45,7 +45,7 @@ export default function BasicAccordion(props) {
                        <Typography>{participant.moreInfo}</Typography> 
                 </AccordionDetails>
                 <AccordionActions>
-                        <button onClick={handleClick}>{`Email ${participant.name}`}</button>
+                        <button onClick={handleClick} value={participant.id}>{`Email ${participant.name}`}</button>
                 </AccordionActions>
             </Accordion>
         ))}
