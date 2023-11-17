@@ -16,7 +16,7 @@ const InputFormRunners  = (props) => {
     const [timeEstimate, setTimeEstimate] = useState('');
     const [familiarity, setFamiliarity] = useState('')
     const [moreInfo, setMoreInfo] = useState('');
-    console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity, moreInfo);
+    // console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity, moreInfo);
 
     // useEffect(() => {
     //     setGender('');

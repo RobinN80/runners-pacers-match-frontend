@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Runners, Pacers } from '../shared/runners-pacers-mock-data';
-import FilterDisplay from './FilterDisplay';
+// import FilterDisplay from './FilterDisplay';
 
 const columnsRunners = [
     {field: 'name', headerName: 'Name', width: 150},

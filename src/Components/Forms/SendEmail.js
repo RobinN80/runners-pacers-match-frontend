@@ -8,7 +8,7 @@ const SendEmail = (props) => {
         setOpen(false);
     }
 
-    console.log(sendeeId, 'Sendee ID');
+    // console.log(sendeeId, 'Sendee ID');
 
     return(
         <Dialog open={open} onClose={handleClose}>
