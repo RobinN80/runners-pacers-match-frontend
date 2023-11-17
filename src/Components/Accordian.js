@@ -12,7 +12,7 @@ export default function BasicAccordion(props) {
     const {participantType} = props;
 
     const handleClick = (e) => {
-        alert(`${participantType} id number: ${e.target.value}`);
+        alert(`Sending email to ${participantType} id number: ${e.target.value}`);
         // console.log(e, 'handleclick');
     }
 
