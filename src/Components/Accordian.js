@@ -6,14 +6,19 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccordionActions from '@mui/material/AccordionActions';
 import { Runners, Pacers } from '../shared/runners-pacers-mock-data';
+import SendEmail from './Forms/SendEmail';
 
 export default function BasicAccordion(props) {
     const [data, setData] = useState([]);
+    const [emailFormOpen, setEmailFormOpen] = useState(false);
+    const [sendeeId, setSendeeId] =useState(null);
     const {participantType} = props;
 
     const handleClick = (e) => {
-        alert(`Sending email to ${participantType} id number: ${e.target.value}`);
+        // alert(` ${participantType} id number: ${e.target.value}`);
         // console.log(e, 'handleclick');
+        setEmailFormOpen(true);
+        setSendeeId(e.target.value);
     }
 
     useEffect(() => {
@@ -25,7 +30,7 @@ export default function BasicAccordion(props) {
         }
     }, [participantType]);
   return (
-    <div style={{margin: "20px 10px 0 0"}}>
+    <div style={{margin: "20px 10px 0 10px"}}>
         <h3>{participantType.toUpperCase()}</h3>
         {data.map((participant) => (
             <Accordion key={participant.id}>
@@ -49,6 +54,7 @@ export default function BasicAccordion(props) {
                 </AccordionActions>
             </Accordion>
         ))}
+        <SendEmail open={emailFormOpen} setOpen={() => setEmailFormOpen()} sendeeId={sendeeId}/>
     </div>
   );
 }

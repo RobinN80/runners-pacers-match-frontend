@@ -1,16 +1,16 @@
 import {useState} from 'react';
-import ParticipantDisplayGrid from "./Grid";
-import SimpleDataGrid from './SimpleDataGrid';
+// import ParticipantDisplayGrid from "./Grid";
+// import SimpleDataGrid from './SimpleDataGrid';
 // import InputForm from './InputForm';
 import InputFormRunners from './Forms/InputFormRunners';
 import InputFormPacers from './Forms/InputFormPacers';
-import FilterDisplay from './FilterDisplay';
+// import FilterDisplay from './FilterDisplay';
 import BasicAccordion from './Accordian';
-import {Stack} from '@mui/material';
+import {Stack, Button} from '@mui/material';
 // const participantTypes = [runner, pacer];
 
 const Main = () => {
- const [participantType, setParticipantType] = useState('');
+//  const [participantType, setParticipantType] = useState('');
  const [participantFormType, setParticipantFormType] = useState('')
 //  const [runnerFormOpen, setRunnerFormOpen] =useState(false);
 //  const [pacerFormOpen, setPacerFormOpen] = useState(false);
@@ -32,23 +32,29 @@ const handleClickPacerForm = () =>{
 
  return(
     <div>
-        <div>
+        <div style={{marginTop: '5%'}}>
             <Stack
                 direction="column"
                 justifyContent="flex-start"
                 alignItems="center"
                 spacing={2}
             >
-                <button 
+                <Button 
+                style={{color: 'white', backgroundColor: "grey"}}
                 onClick={() => handleClickRunnerForm()} 
-                ><strong>Runners</strong> looking for a pacer?</button>
-                <button onClick={() => handleClickPacerForm()}><strong>Pacers</strong> looking for a runner?</button>
+                ><strong>Runners:</strong>{''} sign up for a pacer?</Button>
+                <Button
+                 onClick={() => handleClickPacerForm()}
+                 style={{color: 'white', backgroundColor: "grey"}}
+                 >
+                    <strong>Pacers:</strong> sign up for a runner?
+                </Button>
             </Stack>
        </div>
        {/* <div>
         <span>
-            <button onClick={()=>(setParticipantType('pacers'))}>SEE LIST: <strong>Runners</strong> looking for a pacer?</button>
-            <button onClick={()=>(setParticipantType('runners'))}>SEE LIST: <strong>Pacers</strong> looking for a runner?</button>
+            <Button onClick={()=>(setParticipantType('pacers'))}>SEE LIST: <strong>Runners</strong> looking for a pacer?</Button>
+            <Button onClick={()=>(setParticipantType('runners'))}>SEE LIST: <strong>Pacers</strong> looking for a runner?</Button>
         </span>
        </div> */}
        {/* <FilterDisplay /> */}
