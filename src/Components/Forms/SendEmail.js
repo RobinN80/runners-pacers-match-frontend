@@ -1,8 +1,8 @@
 import React from 'react'
-import {Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Grid} from '@mui/material';
+import {Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Grid, TextField, Button} from '@mui/material';
 
 const SendEmail = (props) => {
-    const {sendeeId, open, setOpen} = props;
+    const {sendeeId, sendeeName, open, setOpen} = props;
     
     const handleClose = ()=> {
         setOpen(false);
@@ -11,9 +11,9 @@ const SendEmail = (props) => {
     // console.log(sendeeId, 'Sendee ID');
 
     return(
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle maxWidth={'md'}>
-            {`Send Email to ... ${sendeeId}`}
+        <Dialog open={open} onClose={handleClose} maxWidth={'md'}>
+          <DialogTitle>
+            {`Send Email to ${sendeeName}`}
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -28,9 +28,38 @@ const SendEmail = (props) => {
           X
         </IconButton>
         <DialogContent>
-        <Grid container spacing={1}></Grid>
+        <Grid container spacing={1}>
+         
+          <Grid item xs={12}>
+            <TextField
+              id="from"
+              label="Your email address"
+              helperText={`Make sure your email address is correct so that ${sendeeName}, can resply to your email`}
+            ></TextField>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="subject"
+              label="Subject"
+              // defaultValue={`Re: RACE NAME`}
+            ></TextField>
+          </Grid>
+          <Grid item xs={12} >
+            <TextField
+              id="outlined-multiline-static"
+              label="Content of Email"
+              multiline
+              rows={4}
+              defaultValue={`Dear ${sendeeName},`}
+              fullWidth={true}
+            />
+          </Grid>
+        </Grid>
         </DialogContent> 
-        <DialogActions></DialogActions>
+        <DialogActions>
+          <Button>SEND</Button>
+          <Button onClick={handleClose} >Cancel</Button>
+        </DialogActions>
         </Dialog>
     );
     

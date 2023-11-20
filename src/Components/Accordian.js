@@ -12,14 +12,21 @@ export default function BasicAccordion(props) {
     const [data, setData] = useState([]);
     const [emailFormOpen, setEmailFormOpen] = useState(false);
     const [sendeeId, setSendeeId] =useState(null);
+    const [sendeeName, setSendeeName] =useState('');
     const {participantType} = props;
 
-    const handleClick = (e) => {
+    const handleClick = (participant) => {
         // alert(` ${participantType} id number: ${e.target.value}`);
-        // console.log(e, 'handleclick');
+        // console.log(participant, 'handleclick');
         setEmailFormOpen(true);
-        setSendeeId(e.target.value);
-    }
+        setSendeeId(participant.id);
+        setSendeeName(participant.name);
+    };
+
+    const handleClose = () => {
+        setSendeeId(null);
+        setSendeeName('');
+    };
 
     useEffect(() => {
         if(participantType === 'runners'){
@@ -50,11 +57,11 @@ export default function BasicAccordion(props) {
                        <Typography>{participant.moreInfo}</Typography> 
                 </AccordionDetails>
                 <AccordionActions>
-                        <button onClick={handleClick} value={participant.id}>{`Email ${participant.name}`}</button>
+                        <button onClick={() => handleClick(participant)} >{`Email ${participant.name}`}</button>
                 </AccordionActions>
             </Accordion>
         ))}
-        <SendEmail open={emailFormOpen} setOpen={() => setEmailFormOpen()} sendeeId={sendeeId}/>
+        <SendEmail open={emailFormOpen} setOpen={() => setEmailFormOpen()} sendeeId={sendeeId} sendeeName={sendeeName} handleClose={handleClose}/>
     </div>
   );
 }
