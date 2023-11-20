@@ -35,12 +35,14 @@ const SendEmail = (props) => {
               id="from"
               label="Your email address"
               helperText={`Make sure your email address is correct so that ${sendeeName}, can resply to your email`}
+              fullWidth={true}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               id="subject"
               label="Subject"
+              fullWidth={true}
               // defaultValue={`Re: RACE NAME`}
             ></TextField>
           </Grid>
