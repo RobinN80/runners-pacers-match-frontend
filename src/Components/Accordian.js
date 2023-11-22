@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccordionActions from '@mui/material/AccordionActions';
 import { Runners, Pacers } from '../shared/runners-pacers-mock-data';
 import SendEmail from './Forms/SendEmail';
+import '../CompnentCSS/Accordion.css';
 
 export default function BasicAccordion(props) {
     const [data, setData] = useState([]);
@@ -46,15 +47,15 @@ export default function BasicAccordion(props) {
                   aria-controls={`${participant.id}-header`}
                   id={`${participant.id}-header`}
                 >
-                       <Typography>{participant.name}</Typography> 
-                       <Typography >{participant.distance ? participant.distance : ''}</Typography>
-                       <Typography>{participant.timeEstimate}</Typography> 
+                       <Typography >Name: {participant.name},</Typography> 
+                       <Typography >{participant.distance ? `Distance: ${participant.distance},` : ''}</Typography>
+                       <Typography>Time Estimate: {participant.timeEstimate}</Typography> 
                 </AccordionSummary>
                 <AccordionDetails>
-                        <Typography>{participant.gender}</Typography> 
-                       <Typography>{participant.partnerGenderPreference}</Typography>
-                       <Typography>{participant.familiarityOfCourse}</Typography>
-                       <Typography>{participant.moreInfo}</Typography> 
+                        <Typography>Gender: {participant.gender}</Typography> 
+                       <Typography>Prefered Gender of Partner: {participant.partnerGenderPreference}</Typography>
+                       <Typography>Familiarity of Course: {participant.familiarityOfCourse}</Typography>
+                       <Typography>Additional Info: {participant.moreInfo}</Typography> 
                 </AccordionDetails>
                 <AccordionActions>
                         <button onClick={() => handleClick(participant)} >{`Email ${participant.name}`}</button>
