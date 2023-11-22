@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
     Dialog, DialogTitle, DialogContent, TextField, InputLabel, Select, MenuItem, FormLabel, FormControl, IconButton, DialogActions, Button, Grid
 } from '@mui/material';
@@ -7,21 +7,17 @@ import SelectDistance from './SelectDistance';
 
 const InputFormRunners  = (props) => {
     const {participantFormType, open, setOpen} = props;
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [age, setAge] = useState(0);
+    const [, setName] = useState('');
+    const [, setEmail] = useState('');
+    const [, setAge] = useState(0);
     const [gender, setGender] = useState('');
-    const [partnerGender, setPartnerGender] = useState('none')
+    const [partnerGender, setPartnerGender] = useState('')
     const [distance, setDistance] = useState(0);
     const [timeEstimate, setTimeEstimate] = useState('');
     const [familiarity, setFamiliarity] = useState('')
-    const [moreInfo, setMoreInfo] = useState('');
+    const [, setMoreInfo] = useState('');
     // console.log('all the states', name, email, age, gender, partnerGender, distance, timeEstimate, familiarity, moreInfo);
 
-    // useEffect(() => {
-    //     setGender('');
-    //     setDistance(0);
-    // },[])
 
     const handleChangeGender = (event) => {
         setGender(event.target.value)

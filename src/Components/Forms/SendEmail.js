@@ -2,7 +2,12 @@ import React from 'react'
 import {Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Grid, TextField, Button} from '@mui/material';
 
 const SendEmail = (props) => {
-    const {sendeeId, sendeeName, open, setOpen} = props;
+    const {
+            // sendeeId, 
+            sendeeName, 
+            open, 
+            setOpen
+          } = props;
     
     const handleClose = ()=> {
         setOpen(false);
